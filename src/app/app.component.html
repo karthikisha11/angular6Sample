@@ -1,5 +1,17 @@
+<span *ngIf="!appLoaded; else: app">
+  <div class="loading-modal-container">
+    <span class="center-block">
+      <div class="loading-animation">
+        <img src="assets/logo/logoMin.png" height="45px" alt="Loading..." />
+      </div>
+      <div class="loading-text">{{ appLoadingText }}</div>
+    </span>
+  </div>
+</span>
+<ng-template #app>
   <div>
     <app-sidenav></app-sidenav>
     <app-topnav></app-topnav>
     <div id="main-content"><router-outlet> </router-outlet></div>
   </div>
+</ng-template>

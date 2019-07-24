@@ -1,6 +1,10 @@
 export class Login {
+;
   static readonly type = "[KEYCLOAK] LOGGING_IN";
-  constructor() {}
+  constructor() {
+
+
+  }
 }
 
 export class LoginSuccess {

@@ -25,8 +25,11 @@ declare let Keycloak: any;
 export class KeycloakService {
   public keycloakAuth: any;
   private timer: any;
+
   init(): Promise<any> {
+      console.log('hi');
     this.keycloakAuth = new Keycloak(keycloakConfig);
+
     return this.keycloakAuth
       .init({ onLoad: "login-required", checkLoginIframe: false })
       .success(() => {
