@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-// import { Observable } from 'rxjs';
-// import { KeycloakState } from './../../keycloak/keycloak.state';
-// import { Logout } from './../../keycloak/keycloak.actions';
-// import { Select, Store } from '@ngxs/store';
+import { Observable } from 'rxjs';
+import { KeycloakState } from './../../keycloak/keycloak.state';
+import { Logout } from './../../keycloak/keycloak.actions';
+import { Select, Store } from '@ngxs/store';
 
 @Component({
     selector: 'app-topnav',
@@ -10,17 +10,17 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./topnav.component.scss']
 })
 export class TopnavComponent implements OnInit {
-    // @Select(KeycloakState.username) username$: Observable<string>;
-    // username = '';
-    // logout() {
-    //     this.store.dispatch(new Logout());
-    // }
+    @Select(KeycloakState.email) email$: Observable<string>;
+    email = '';
+    logout() {
+        this.store.dispatch(new Logout());
+    }
     constructor(
-        // private store: Store
+        private store: Store
         ) {
-        // this.username$.subscribe(value => {
-        //     this.username = value;
-        // });
+        this.email$.subscribe(value => {
+            this.email = value;
+        });
     }
     ngOnInit() {}
 }
