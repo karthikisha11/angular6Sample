@@ -16,7 +16,6 @@ import { CDIState } from "./state/cdi/cdi.state";
 import { StylingModule } from "./shared/styling.imports";
 import { BulkUploadModule } from './modules/bulk-upload/bulk-upload.module';
 import { SharedModule } from './shared/shared.module';
-
 @NgModule({
   declarations: [],
   imports: [
