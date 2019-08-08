@@ -1,4 +1,4 @@
-import { endpoints } from "./api.config";
+import { endpoints,pendpoints } from "./api.config";
 import { cacheableItem } from "./../features/caching/cache.model";
 
 // Default expiry of cache in seconds
@@ -18,6 +18,12 @@ export const cacheWhitelist: cacheableItem[] = [
   {
     name: "contacts",
     apiPath: endpoints.contacts.fetch,
+    invalidatedBy: [],
+    expiresIn: 3600
+  },
+  {
+    name: "programs",
+    apiPath: pendpoints.programs.fetch,
     invalidatedBy: [],
     expiresIn: 3600
   }

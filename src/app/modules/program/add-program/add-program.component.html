@@ -9,7 +9,7 @@
     [notificationMessage]="notificationMessage"
     [formCloseNavigationRoute]="formCloseNavigationRoute">
 <ng-template #formRef>
-        <form [formGroup]="ProgramForm" (ngSubmit)="submitForm()" ngxsForm="Prgorams.programForm" >
+        <form [formGroup]="programForm" (ngSubmit)="submitForm()" ngxsForm="Programs.programForm" >
             <mat-card-content>
                 <mat-accordion multi="true">
                     <mat-expansion-panel [expanded]="true" disabled>
@@ -60,14 +60,7 @@
                         <input matInput required placeholder="State" formControlName="state">
                         <mat-error>Invalid State</mat-error>
                     </mat-form-field>
-                    <mat-form-field class="minimum-side-padding one-third-block" appearance="outline">
-                      <mat-select placeholder="Country" formControlName="country" required>
-                          <ng-container *ngFor="let country of countryOptions">
-                              <mat-option [value]="country.value">{{country.label}}</mat-option>
-                          </ng-container>
-                      </mat-select>
-                      <mat-error>Please select a country</mat-error>
-                  </mat-form-field>
+
 
                     </mat-expansion-panel>
                 </mat-accordion>

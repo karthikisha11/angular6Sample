@@ -31,13 +31,13 @@ export const sitemap: Link[] = [
     ]
   },
   {
-    label: "programs",
+    label: "program",
     path: null,
     icon: "address-book",
     children: [
       {
-        label: "Programs",
-        path: "program/program-list",
+        label: "program",
+        path: "program",
         icon: "address-book",
         children: []
       },

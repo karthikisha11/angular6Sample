@@ -8,6 +8,7 @@ import { NgxsModule } from "@ngxs/store";
 import { NgxsReduxDevtoolsPluginModule } from "@ngxs/devtools-plugin";
 import { HomeModule } from "./modules/home/home.module";
 import { ContactState } from "./state/contacts/contacts.state";
+import { ProgramState } from "./state/program/program.state";
 import { environment } from "../environments/environment";
 import { ConstantParsingService } from "./services/constant-parsing.service";
 import { HttpClientModule } from "@angular/common/http";
@@ -23,7 +24,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     AppRoutingModule,
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsModule.forRoot([ConstantState, ContactState, CDIState], {
+    NgxsModule.forRoot([ConstantState, ContactState, CDIState,ProgramState], {
       developmentMode: !environment.production
     }),
     BulkUploadModule,

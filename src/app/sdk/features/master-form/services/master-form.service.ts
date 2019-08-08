@@ -28,13 +28,13 @@ export class MasterFormService {
     (<any>Object).values(form.controls).forEach(control => {
       control.markAsDirty();
     });
-
     if (form.status === "INVALID") {
       this.validateAllFields(form);
       return;
     }
     this.store.dispatch(new SubmitForm(formId));
   }
+
   cancelForm(cancelRoute) {
     this.router.navigate([cancelRoute]);
   }

@@ -129,16 +129,7 @@ export class AddEditContactComponent implements OnInit {
   }
   submitForm() {
     this.masterFormService.submitForm(this.ContactForm, this.formId);
-    // (<any>Object).values(this.ContactForm.controls).forEach(control => {
-    //   control.markAsDirty();
-    // });
-
-    // if (this.ContactForm.status === "INVALID") {
-    //   this.validateAllFields(this.ContactForm);
-    //   return;
-    // }
-    // this.store.dispatch(new SubmitForm(this.formId));
-  }
+}
   cancelForm() {
     this.masterFormService.cancelForm(this.formCloseNavigationRoute);
     // this.router.navigate([this.formCloseNavigationRoute]);

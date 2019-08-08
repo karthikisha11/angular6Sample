@@ -2,7 +2,7 @@ import { State, Action, StateContext, Selector } from "@ngxs/store";
 import { map, catchError } from "rxjs/operators";
 import { Program } from "../../models/program.model";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-//import { FetchContacts } from "./contacts.actions";
+import { FetchPrograms } from "./program.actions";
 import {
   SubmitForm,
   DisableNotification,
@@ -11,12 +11,12 @@ import {
   SUCCESS_NOTIFICATION,
   FAILURE_NOTIFICATION
 } from "../../sdk/features/master-form/master-form.actions";
-/*import {
-  ContactsService,
-  fetchResponse,
-  addResponse,
-  updateResponse
-} from "../../services/api/contacts.service";*/
+import {
+   addResponse,
+   ProgramService,
+   fetchResponse,
+   updateResponse
+} from "../../services/api/program.service";
 import { HttpErrorResponse, HttpResponse } from "@angular/common/http";
 import { ProgramFormCreator } from "../../modules/program/add-program/program.form";
 
@@ -26,7 +26,7 @@ type NgxsForm = {
   status: string;
   errors: Object;
 };
-export const formIdProgram = "ADD-EDIT-PROGRAM";
+export const formIdProgram = "ADD-EDIT-PROGRAMS";
 export const formRouteProgram = "/program/add-program";
 export const formCloseNavigationRouteProgram = "/program";
 
@@ -39,7 +39,7 @@ export class ProgramStateModel {
   showNotification: string;
   totalRecords: number;
   isFetching: boolean;
-  cForm: NgxsForm;
+  programForm: NgxsForm;
 }
 const emptyProgramForm: NgxsForm = {
   model: new Program(), // Contains the form Object in model
@@ -60,48 +60,50 @@ export const defaultProgramState = {
   programForm: emptyProgramForm
 };
 
-/*@State<ProgramStateModel>({
+
+
+@State<ProgramStateModel>({
   name: "Programs",
   defaults: defaultProgramState
-})*/
+})
 export class ProgramState {
   public constructor(
-    //private contactsService: ContactsService,
-    private contactFormCreator: ProgramFormCreator
+    private programService: ProgramService,
+    private programFormCreator: ProgramFormCreator
   ) {}
-  /*@Selector()
-  static state(state: ContactStateModel): ContactStateModel {
+  @Selector()
+  static state(state: ProgramStateModel): ProgramStateModel {
     return state;
   }
   @Selector()
-  static contacts(state: ContactStateModel) {
-    return state.contacts;
+  static Programs(state: ProgramStateModel) {
+    return state.programs;
   }
   @Selector()
-  static totalRecords(state: ContactStateModel) {
+  static totalRecords(state: ProgramStateModel) {
     return state.totalRecords;
   }
   @Selector()
-  static isFetching(state: ContactStateModel) {
+  static isFetching(state: ProgramStateModel) {
     return state.isFetching;
   }
 
-  /*@Action(FetchContacts)
-  fetchContacts(
-    { getState, patchState, setState }: StateContext<ContactStateModel>,
-    { searchParams }: FetchContacts
+  @Action(FetchPrograms)
+  fetchPrograms(
+    { getState, patchState, setState }: StateContext<ProgramStateModel>,
+    { searchParams }: FetchPrograms
   ) {
     let state = getState();
     patchState({
       isFetching: true
     });
-    this.contactsService
-      .fetchContacts(searchParams)
+    this.programService
+      .fetchPrograms(searchParams)
       .subscribe((res: HttpResponse<any>) => {
         if (res.ok) {
           setState({
             ...state,
-            contacts: res.body,
+            programs: res.body,
             totalRecords: parseInt(res.headers.get('X-Total-Count'), 10),
             isFetching: false
           });
@@ -113,26 +115,28 @@ export class ProgramState {
       });
   }
 
+
   @Action(SubmitForm)
-  submitContactForm(
-    { getState, patchState, setState }: StateContext<ContactStateModel>,
+  submitProgramForm(
+    { getState, patchState, setState }: StateContext<ProgramStateModel>,
     { formId }: SubmitForm
   ) {
-    if (formId === formIdContact) {
+    if (formId === formIdProgram) {
       const state = getState();
       patchState({ submittingForm: true });
-      const contact = state.contactForm.model;
-      const contactId = contact.id;
-      if (contactId === "NEW") {
-        const { id, ...newContact } = contact;
-        this.contactsService
-          .createContact(newContact)
+      const program = state.programForm.model;
+      const programId = program.id;
+      if (programId === "NEW") {
+        const { id, ...newProgram } = program;
+          this.programService
+          .createProgram(newProgram)
           .subscribe((res: HttpResponse<any>) => {
             processFormSubmitResponse(res);
           });
-        } else {
-        this.contactsService
-        .updateContact(contact)
+        }
+         else {
+        this.programService
+        .updateProgram(program)
           .subscribe((res: HttpResponse<any>) => {
             processFormSubmitResponse(res);
           });
@@ -157,50 +161,51 @@ export class ProgramState {
             });
           }
         };
+      }
     }
-  }
+
   @Action(DisableNotification)
-  disableNotification({ patchState }: StateContext<ContactStateModel>, {formId}: DisableNotification) {
-    if(formId === formIdContact) {
+  disableNotification({ patchState }: StateContext<ProgramStateModel>, {formId}: DisableNotification) {
+    if(formId === formIdProgram) {
       patchState({ showNotification: null, notificationMessage: '' });
     }
   }
 
   @Action(SetForm)
   setForm(
-    { getState, setState }: StateContext<ContactStateModel>,
+    { getState, setState }: StateContext<ProgramStateModel>,
     { formId, recordId }: SetForm
   ) {
-    if (formId === formIdContact) {
+    if (formId === formIdProgram) {
       const state = getState();
-      let contact: Contact = new Contact();
+      let program: Program = new Program();
       if (recordId !== "NEW") {
-        contact = state.contacts.find(p => p.id === recordId);
+        program = state.programs.find(p => p.id === recordId);
         // Generating the form from the FormCreator Service
-        let contactForm = this.contactFormCreator.generateContactForm(contact);
-        contact = contactForm.value;
+        let programForm = this.programFormCreator.generateProgramForm(program);
+        program = programForm.value;
       }
       setState({
         ...state,
-        contactForm: { ...state.contactForm, model: contact }
+        programForm: { ...state.programForm, model: program }
       });
     }
   }
 
   @Action(ResetForm)
-  RestContactForm(
-    { getState, setState }: StateContext<ContactStateModel>,
+  RestProgramForm(
+    { getState, setState }: StateContext<ProgramStateModel>,
     { formId }: ResetForm
   ) {
-    if (formId === formIdContact) {
+    if (formId === formIdProgram) {
       const state = getState();
       setState({
         ...state,
         formSubmitted: false,
         submitSuccess: false,
         submittingForm: false,
-        contactForm: emptyContactForm
+        programForm: emptyProgramForm
       });
     }
-  }*/
+  }
 }

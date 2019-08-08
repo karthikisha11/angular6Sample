@@ -3,7 +3,7 @@ import { CommonModule } from "@angular/common";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { NgxsFormPluginModule } from "@ngxs/form-plugin";
 import { AgGridModule } from "ag-grid-angular";
-//import { PendingChangesGuard } from "./components/add-contact/can-deactivate.guard";
+import { PendingChangesGuard } from '../program/add-program/can-deactivate.guard';
 import { ProgramComponent } from './program/program.component';
 import { AddProgramComponent } from './add-program/add-program.component';
 import { TableModule } from "./../../sdk/features/table/table.module";
@@ -25,7 +25,7 @@ import { StylingModule } from '../../shared/styling.imports';
     NgxsFormPluginModule,
     TableModule
   ],
-    providers: [MessageService]
+    providers: [PendingChangesGuard,MessageService]
 })
 
 export class ProgramModule { }

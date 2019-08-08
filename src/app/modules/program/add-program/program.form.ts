@@ -13,7 +13,7 @@ export class ProgramFormCreator {
   ) {}
   generateProgramForm = Program => {
     const ProgramForm = this.fb.group({
-      programId: [Program.programId],
+      id: [Program.id],
       programName: [Program.programName],
       startDate: [Program.startDate],
       endDate: [Program.endDate],
@@ -28,5 +28,3 @@ export class ProgramFormCreator {
 const parseDateForCalendar = (dateString: string) => {
   return dateString ? new Date(dateString) : dateString;
 };
-
-

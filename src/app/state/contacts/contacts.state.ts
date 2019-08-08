@@ -118,8 +118,12 @@ export class ContactState {
     { getState, patchState, setState }: StateContext<ContactStateModel>,
     { formId }: SubmitForm
   ) {
+      console.log('formIdContact coming');
+    console.log(formIdContact);
     if (formId === formIdContact) {
       const state = getState();
+      console.log("state");
+      console.log(state);
       patchState({ submittingForm: true });
       const contact = state.contactForm.model;
       const contactId = contact.id;
