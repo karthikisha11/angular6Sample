@@ -400,10 +400,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@ngxs/store@^3.3.4":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.4.3.tgz#cf2f3b95e6be814742754c7f24e53b2b6392bb47"
-  integrity sha512-pVwxFxCxr09+zL37ot1hf6EhgpftNLSAseBZwHUlx40x2qAT+jat8XJlj4j0p+BoVEjlaVZn8zE6qMm2oSPlZw==
+"@ngxs/store@^3.5.0":
+  version "3.6.2"
+  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.6.2.tgz#cfba63dc1e5bd422e89e54b3332cd69818510624"
+  integrity sha512-al7GU618SAuz2Ul4rFYVDgS1DM0gHReGOGvbnE7LBt4Etz3gsJERNYXPp2bSA7lZGaRPRaFfIHJN+Lm/GikFJw==
   dependencies:
     tslib "^1.9.0"
 
@@ -678,9 +678,9 @@ acorn-dynamic-import@^3.0.0:
     acorn "^5.0.0"
 
 acorn@^5.0.0, acorn@^5.6.2:
-  version "5.7.3"
-  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.3.tgz#67aa231bf8812974b85235a96771eb6bd07ea279"
-  integrity sha512-T/zvzYRfbVojPWahDsE5evJdHb3oJoQfFbsrKM7w5Zcs++Tr257tia3BmMP8XYVjp1S9RZXQMh7gao96BlqZOw==
+  version "5.7.4"
+  resolved "https://registry.yarnpkg.com/acorn/-/acorn-5.7.4.tgz#3e8d8a9947d0599a1796d10225d7432f4a4acf5e"
+  integrity sha512-1D++VG7BhrtvQpNbBzovKNc1FLGGEE/oGe7b9xJm/RFHMBeUaUGpluV9RLjZa47YFdPcDAenEYuq9pQPcMdLJg==
 
 adm-zip@^0.4.9:
   version "0.4.13"
@@ -4675,7 +4675,7 @@ karma@~3.1.1:
     tmp "0.0.33"
     useragent "2.3.0"
 
-keycloak-angular@^6.0.0:
+keycloak-angular@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/keycloak-angular/-/keycloak-angular-6.1.0.tgz#41d7c29d57bffddfea75e3e44c27e7e666e57398"
   integrity sha512-TT3h6nWIXRf3u3NcEC25KBvgnZufpHaOKNfUUvt9Jk4p6zrDiKXxSIS8y+B1hg0kUhVsxzjXgSVngry39jljYw==
