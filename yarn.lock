@@ -400,10 +400,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@ngxs/store@^3.3.4":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.4.3.tgz#cf2f3b95e6be814742754c7f24e53b2b6392bb47"
-  integrity sha512-pVwxFxCxr09+zL37ot1hf6EhgpftNLSAseBZwHUlx40x2qAT+jat8XJlj4j0p+BoVEjlaVZn8zE6qMm2oSPlZw==
+"@ngxs/store@^3.5.0":
+  version "3.7.3"
+  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.7.3.tgz#74e2878d527fc12dace343ce43fd79fa1a2645af"
+  integrity sha512-JjATXC7FsxxQu2SaayP/iLe4O+5/RkRov3/J7WkaQmV6/JWFNkkdOwbEa6pDbh/po0JO7DHHMk3huIUNpDu67g==
   dependencies:
     tslib "^1.9.0"
 
@@ -3230,11 +3230,9 @@ flush-write-stream@^1.0.0:
     readable-stream "^2.3.6"
 
 follow-redirects@^1.0.0:
-  version "1.7.0"
-  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.7.0.tgz#489ebc198dc0e7f64167bd23b03c4c19b5784c76"
-  integrity sha512-m/pZQy4Gj287eNy94nivy5wchN3Kp+Q5WgUPNy5lJSZ3sgkVKSYV/ZChMAQVIgx1SqfZ2zBZtPA2YlXIWxxJOQ==
-  dependencies:
-    debug "^3.2.6"
+  version "1.14.7"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.7.tgz#2004c02eb9436eee9a21446a6477debf17e81685"
+  integrity sha512-+hbxoLbFMbRKDwohX8GkTataGqO6Jb7jGwpAlwgy2bIz25XtRm7KEzJM76R1WiNT5SwZkX4Y75SwBolkpmE7iQ==
 
 fontkit@^1.0.0:
   version "1.8.0"
@@ -4675,7 +4673,7 @@ karma@~3.1.1:
     tmp "0.0.33"
     useragent "2.3.0"
 
-keycloak-angular@^6.0.0:
+keycloak-angular@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/keycloak-angular/-/keycloak-angular-6.1.0.tgz#41d7c29d57bffddfea75e3e44c27e7e666e57398"
   integrity sha512-TT3h6nWIXRf3u3NcEC25KBvgnZufpHaOKNfUUvt9Jk4p6zrDiKXxSIS8y+B1hg0kUhVsxzjXgSVngry39jljYw==
