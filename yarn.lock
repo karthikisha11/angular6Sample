@@ -400,10 +400,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@ngxs/store@^3.3.4":
-  version "3.4.3"
-  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.4.3.tgz#cf2f3b95e6be814742754c7f24e53b2b6392bb47"
-  integrity sha512-pVwxFxCxr09+zL37ot1hf6EhgpftNLSAseBZwHUlx40x2qAT+jat8XJlj4j0p+BoVEjlaVZn8zE6qMm2oSPlZw==
+"@ngxs/store@^3.5.0":
+  version "3.7.4"
+  resolved "https://registry.yarnpkg.com/@ngxs/store/-/store-3.7.4.tgz#dae9e6c101a7688970558fb140ac5ef55706a200"
+  integrity sha512-/W+sSz4jOkS0ZlxozdQj2+fPhl2rv6Yhbuj3WDqRw++jJ+ZU29blOpfd5lgjc24EH/Dbi0ACZl5IyX1CUbJlNQ==
   dependencies:
     tslib "^1.9.0"
 
@@ -2541,9 +2541,9 @@ domutils@^1.5.1:
     domelementtype "1"
 
 dot@^1.1.1:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/dot/-/dot-1.1.2.tgz#c7377019fc4e550798928b2b9afeb66abfa1f2f9"
-  integrity sha1-xzdwGfxOVQeYkosrmv62ar+h8vk=
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/dot/-/dot-1.1.3.tgz#351360e00a748bce9a1f8f27c00c394a7e4e1e9f"
+  integrity sha512-/nt74Rm+PcfnirXGEdhZleTwGC2LMnuKTeeTIlI82xb5loBBoXNYzr2ezCroPSMtilK8EZIfcNZwOcHN+ib1Lg==
 
 duplexer2@~0.1.4:
   version "0.1.4"
@@ -4675,7 +4675,7 @@ karma@~3.1.1:
     tmp "0.0.33"
     useragent "2.3.0"
 
-keycloak-angular@^6.0.0:
+keycloak-angular@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/keycloak-angular/-/keycloak-angular-6.1.0.tgz#41d7c29d57bffddfea75e3e44c27e7e666e57398"
   integrity sha512-TT3h6nWIXRf3u3NcEC25KBvgnZufpHaOKNfUUvt9Jk4p6zrDiKXxSIS8y+B1hg0kUhVsxzjXgSVngry39jljYw==
